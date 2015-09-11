@@ -12,11 +12,13 @@ public class ConsultaController {
      * Registra paciente
      * @param nome nome do paciente
      * @param telefoneContato telefone para contato
+     * @return retorna paciente.
      */
-    public void cadastraPaciente(String nome, String telefoneContato){
+    public Paciente cadastraPaciente(String nome, String telefoneContato){
         Paciente paciente = new Paciente();
         paciente.setNome(nome);
         paciente.setTelefone(telefoneContato);
+        return paciente;
     }
 
     /**
@@ -25,11 +27,13 @@ public class ConsultaController {
      * @param dataNascimento data de nascimento
      * @param endereco endereco
      * @param profissao profissao
+     * @return paciente com registros.
      */
-    public void completaRegistroPaciente(Paciente paciente, String dataNascimento, String endereco, String profissao){
+    public Paciente completaRegistroPaciente(Paciente paciente, String dataNascimento, String endereco, String profissao){
         paciente.setDataNascimento(dataNascimento);
         paciente.setEndereco(endereco);
         paciente.setProfissao(profissao);
+        return paciente;
     }
 
     /**
@@ -50,13 +54,23 @@ public class ConsultaController {
     }
 
 
-    public void cadastraMedico(Integer CRM, String especialidade, PlanoDeSaude planoDeSaude, String horaini, String horaFim){
+    /**
+     * Cadastra medico
+     * @param CRM numero do crm
+     * @param especialidade especialidade medico
+     * @param planoDeSaude palano que atende
+     * @param horaini horario de inicio de atendimento
+     * @param horaFim horario fim de atendimento
+     * @return medico cadastrado
+     */
+    public Medico cadastraMedico(Integer CRM, String especialidade, PlanoDeSaude planoDeSaude, String horaini, String horaFim){
         Medico medico = new Medico();
         medico.setCRM(CRM);
         medico.setEspecialidade(especialidade);
         medico.setPlanosConveniados(planoDeSaude.toString());
         medico.setHoraInicio(horaini);
         medico.setHoraFim(horaFim);
+        return medico;
     }
 
 
